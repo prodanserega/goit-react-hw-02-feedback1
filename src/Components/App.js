@@ -7,6 +7,8 @@ import Statistics from "./Statistics/Statistics";
 
 import { Feedback_Option } from "../date/Feedback";
 
+import s from "./App.module.css";
+
 class App extends Component {
   state = {
     good: 0,
@@ -36,14 +38,14 @@ class App extends Component {
     const total = this.countTotalFeedback();
     const totalPositive = this.countPositive();
     return (
-      <div>
-        <Section title="Please leave feedback">
+      <div className={s.App}>
+        <Section className={s.title} title="Please leave feedback">
           <FeedbackOptions
             options={Feedback_Option}
             onLeaveFeedback={this.handleFeedback}
           />
         </Section>
-        <Section title="Statistics">
+        <Section className={s.title} title="Statistics:">
           <Statistics
             good={good}
             neutral={neutral}
